@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import UserModel from '../database/models/users';
-import 'dotenv/config';
 import { IVerifyToken } from '../interfaces/tokenJwt';
+import 'dotenv/config';
 
 const secret = process.env.JWT_SECRET as string;
 

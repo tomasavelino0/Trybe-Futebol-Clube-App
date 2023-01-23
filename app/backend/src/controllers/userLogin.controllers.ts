@@ -8,7 +8,6 @@ export default class UserLoginControllers {
     const { email, password } = req.body;
 
     const user = await this.userService.loginAcess(email, password);
-    console.log();
 
     if (typeof user === 'string') {
       return res.status(401).json({ message: user });

@@ -1,12 +1,12 @@
 import * as bcrypt from 'bcryptjs';
-import IUserToken from '../interfaces/userLogin';
+import IUserFull from '../interfaces/userLogin';
 import { createToken } from '../auth/jwtFunctions';
 import UserModel from '../database/models/users';
 
 export default class UserloginServices {
   private model = UserModel;
 
-  public async findByEmailDb(email: string): Promise<IUserToken | null> {
+  public async findByEmailDb(email: string): Promise<IUserFull | null> {
     const user = await this.model.findOne({ where: { email } });
     if (!user?.email) return null;
     return user;

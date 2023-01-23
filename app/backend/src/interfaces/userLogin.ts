@@ -1,4 +1,4 @@
-export default interface IUserToken {
+export default interface IUserFull {
   dataValues :{
     id: number,
     username: string,
