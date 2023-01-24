@@ -4,7 +4,6 @@ import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 
 import { app } from '../app';
-import userModel from '../database/models/users';
 import UserloginServices from '../services/usersLogin.services';
 const userService = new UserloginServices();
 import { 
