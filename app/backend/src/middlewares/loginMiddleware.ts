@@ -17,7 +17,7 @@ export default class LoginValidate {
   };
 
   public checkToken = async (req: Request, res: Response, next: NextFunction) => {
-    const { authorization: token } = req.headers;
+    const token = req.headers.authorization;
 
     if (!token) {
       return res.status(401).json({ message: 'Token not found' });
@@ -29,13 +29,11 @@ export default class LoginValidate {
 
       const user = await this.model.findByPk(id);
       if (user) {
-        const { role } = user.dataValues;
         req.body.user = user;
-
-        return res.status(200).json({ role });
+        return next();
       }
     } catch (error) {
-      return res.status(401).json({ message: 'Expired or invalid token' });
+      return res.status(401).json({ message: 'Token must be a valid token' });
     }
 
     return next();

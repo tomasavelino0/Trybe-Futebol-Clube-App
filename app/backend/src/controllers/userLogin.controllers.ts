@@ -15,4 +15,9 @@ export default class UserLoginControllers {
 
     return res.status(200).json(user);
   };
+
+  public roleUser = async (req: Request, res: Response) => {
+    const { role } = req.body.user;
+    return res.status(200).json({ role });
+  };
 }

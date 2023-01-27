@@ -4,9 +4,9 @@ import Team from './teams';
 
 class Matches extends Model {
   declare id: number;
-  declare homeTeam: number;
+  declare homeTeamId: number;
   declare homeTeamGoals: number;
-  declare awayTeam: number;
+  declare awayTeamId: number;
   declare awayTeamGoals: number;
   declare inProgress: boolean;
 }
@@ -18,7 +18,7 @@ Matches.init({
     primaryKey: true,
     type: DataTypes.INTEGER,
   },
-  homeTeam: {
+  homeTeamId: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
@@ -26,7 +26,7 @@ Matches.init({
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  awayTeam: {
+  awayTeamId: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
@@ -45,10 +45,10 @@ Matches.init({
   timestamps: false,
 });
 
-Matches.belongsTo(Team, { foreignKey: 'homeTeam', as: 'teamHome' });
-Matches.belongsTo(Team, { foreignKey: 'awayTeam', as: 'teamAway' });
+Matches.belongsTo(Team, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+Matches.belongsTo(Team, { foreignKey: 'awayTeamId', as: 'awayTeam' });
 
-Team.hasMany(Matches, { foreignKey: 'homeTeam', as: 'teamHome' });
-Team.hasMany(Matches, { foreignKey: 'awayTeam', as: 'teamAway' });
+Team.hasMany(Matches, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+Team.hasMany(Matches, { foreignKey: 'awayTeamId', as: 'awayTeam' });
 
 export default Matches;

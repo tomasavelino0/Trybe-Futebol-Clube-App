@@ -5,7 +5,7 @@ import 'dotenv/config';
 const secret = process.env.JWT_SECRET as string;
 
 const jwtConfig: IJwtconfig = {
-  expiresIn: '1d',
+  expiresIn: '7d',
 };
 
 const createToken = (userWithoutPassword: object): string => {

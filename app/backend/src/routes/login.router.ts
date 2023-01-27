@@ -9,6 +9,6 @@ const UserLoginController = new UserLoginControllers(userLoginService);
 const Loginvalidate = new LoginValidate();
 
 usersRouter.post('/', Loginvalidate.checkBodyLogin, UserLoginController.userLogin);
-usersRouter.get('/validate', Loginvalidate.checkToken);
+usersRouter.get('/validate', Loginvalidate.checkToken, UserLoginController.roleUser);
 
 export default usersRouter;
