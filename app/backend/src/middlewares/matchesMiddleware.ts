@@ -10,4 +10,12 @@ export default class ValidateMatches {
     }
     return next();
   };
+
+  public checkBodyUpdateResult = async (req: Request, res: Response, next: NextFunction) => {
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    if (!homeTeamGoals || !awayTeamGoals) {
+      return res.status(400).json({ message: 'missing fields' });
+    }
+    return next();
+  };
 }

@@ -12,13 +12,22 @@ const matchesMiddlewares = new ValidateMatches();
 const loginMiddlewares = new LoginValidate();
 
 matchesRouter.get('', matchesController.listMatchesInProgress);
+
 matchesRouter.get('', matchesController.listAllMatches);
+
 matchesRouter.post(
   '',
   loginMiddlewares.checkToken,
   matchesMiddlewares.checkHomeTeamAndAway,
   matchesController.createMatch,
 );
+
 matchesRouter.patch('/:id/finish', matchesController.updateProgressToFalse);
+
+matchesRouter.patch(
+  '/:id',
+  matchesMiddlewares.checkBodyUpdateResult,
+  matchesController.updateMatchResult,
+);
 
 export default matchesRouter;

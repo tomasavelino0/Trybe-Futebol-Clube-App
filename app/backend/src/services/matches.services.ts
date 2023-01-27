@@ -63,8 +63,17 @@ export default class MatchesServices {
     if (updatedMatch) return 'Finished';
     return null;
   };
+
+  public updateResultMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number)
+  : Promise<void | null> => {
+    const updatedMatch = await this.model.update(
+      { homeTeamGoals, awayTeamGoals },
+      { where: { id } },
+    );
+
+    if (updatedMatch[0] === 0) return null;
+  };
 }
 
 // const novo = new MatchesServices();
-
-// console.log(novo.getAllMatches().then(console.log));
+// console.log(novo.updateResultMatch(1, 1, 1));

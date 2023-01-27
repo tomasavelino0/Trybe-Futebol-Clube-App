@@ -35,4 +35,17 @@ export default class MatchesControllers {
 
     return res.status(200).json({ message: updatedMatchToProgressFalse });
   };
+
+  public updateMatchResult = async (req: Request, res:Response) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+
+    const matchUpdated = await this.matchesService
+      .updateResultMatch(Number(id), Number(homeTeamGoals), Number(awayTeamGoals));
+
+    if (matchUpdated === null) {
+      return res.status(400).json({ message: 'bad request' });
+    }
+    return res.status(200).json({ message: 'match has been updated' });
+  };
 }
