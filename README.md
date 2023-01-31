@@ -61,8 +61,8 @@ O TFC é um site informativo sobre partidas e classificações de futebol!
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `homeTeam` | `number` | **Obrigatório**. Id do time da casa. |
-| `awayTeam` | `number` | **Obrigatório**. Id do time visitante. |
+| `homeTeamId` | `number` | **Obrigatório**. Id do time da casa. |
+| `awayTeamId` | `number` | **Obrigatório**. Id do time visitante. |
 | `homeTeamGoals` | `number` | **Obrigatório**. Número de gols do time da casa. |
 | `awayTeamGoals` | `number` | **Obrigatório**. Número de gols do time visitante. |
 | `Authorization`      | `string` | **Obrigatório**. Token do login deve ser passado no header. |
