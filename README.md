@@ -1,6 +1,6 @@
 # ⚽ Trybe Futebol Clube
 
-O TFC é um site informativo sobre partidas e classificações de futebol!
+O TFC é um site informativo sobre partidas e classificações de futebol!!!
 
 ![tfc](https://user-images.githubusercontent.com/99822908/197893222-e9b8bf64-e6cb-415d-b273-ff045ff426cd.png)
 
